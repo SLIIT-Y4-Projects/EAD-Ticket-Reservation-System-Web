@@ -7,8 +7,8 @@ const PrivateRoute = ({ permissionLevel }) => {
 	if (isAuthenticated) {
 		return <Outlet />;
 	} else {
-		if (permissionLevel === "BACK_OFFICER") {
-			return <Navigate to="/back-officer/login" />;
+		if (permissionLevel === "BACK_OFFICE") {
+			return <Navigate to="/back-office/login" />;
 		}
 		if (permissionLevel === "TRAVEL_AGENT") {
 			return <Navigate to="/travel-agent/login" />;

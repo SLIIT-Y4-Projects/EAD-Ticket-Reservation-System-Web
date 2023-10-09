@@ -13,8 +13,8 @@ const Header = () => {
     localStorage.removeItem("authToken");
     localStorage.removeItem("permissionLevel");
 
-    if (permissionLevel === "BACK_OFFICER") {
-      window.location.href = "/back-officer/login";
+    if (permissionLevel === "BACK_OFFICE") {
+      window.location.href = "/back-office/login";
       makeToast({ type: "success", message: "Logout Successful" });
     } else if (permissionLevel === "TRAVEL_AGENT") {
       window.location.href = "/travel-agent/login";
@@ -93,10 +93,10 @@ const Header = () => {
               </Link>
             )}
 
-            {permissionLevel === "BACK_OFFICER" && (
+            {permissionLevel === "BACK_OFFICE" && (
               <Link
                 className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
-                to="/admin"
+                to="/back-office"
               >
                 Dashboard
               </Link>
@@ -107,7 +107,7 @@ const Header = () => {
             {permissionLevel === "TRAVEL_AGENT" && (
               <Link
                 className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
-                to="/gov"
+                to="/travel-agent"
               >
                 Dashboard
               </Link>
