@@ -4,6 +4,6 @@ import requestConfigJson from "./requestConfigJson";
 
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
-class BackOfficeAPI {}
+class TravelAgentAPI {}
 
-export default BackOfficeAPI;
+export default TravelAgentAPI;
