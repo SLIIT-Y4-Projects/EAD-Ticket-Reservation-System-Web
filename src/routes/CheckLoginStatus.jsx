@@ -4,8 +4,8 @@ import { Navigate, Outlet } from "react-router-dom";
 const CheckLoginStatus = () => {
   const permissionLevel = localStorage.getItem("permissionLevel");
 
-  if (permissionLevel === "BACK_OFFICER") {
-    return <Navigate to="/back-officer" />;
+  if (permissionLevel === "BACK_OFFICE") {
+    return <Navigate to="/back-office" />;
   }
   if (permissionLevel === "TRAVEL_AGENT") {
     return <Navigate to="/tavel-agent" />;
