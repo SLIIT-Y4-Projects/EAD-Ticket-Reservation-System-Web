@@ -8,7 +8,7 @@ const CheckLoginStatus = () => {
     return <Navigate to="/back-office" />;
   }
   if (permissionLevel === "TRAVEL_AGENT") {
-    return <Navigate to="/tavel-agent" />;
+    return <Navigate to="/travel-agent" />;
   }
    else {
     return <Outlet />;
