@@ -8,7 +8,7 @@ import {
   Home,
   TravelAgentLogin,
   TravelAgentRegister,
-
+  BackOfficeLogin,
 
 } from "../pages";
 
@@ -26,6 +26,13 @@ const AppRoutes = () => {
           <Route path="/travel-agent/login" element={<CheckLoginStatus />}>
           <Route path="/travel-agent/login" element={<TravelAgentLogin />} />
           </Route>
+
+
+          {/* Back Office Routes */}
+          <Route path="/back-office/login" element={<CheckLoginStatus />}>
+          <Route path="/back-office/login" element={<BackOfficeLogin />} />
+          </Route>
+
         </Routes>
       </Router>
     </>
