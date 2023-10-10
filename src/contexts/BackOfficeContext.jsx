@@ -4,7 +4,7 @@ import makeToast from "../components/toast";
 
 const BackOfficeContext = createContext();
 
-export const BackOfficeProvider = ({ children }) => {
+export function BackOfficeProvider ({ children })  {
   return (
     <BackOfficeContext.Provider value={{}}>
       {children}

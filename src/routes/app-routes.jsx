@@ -9,6 +9,7 @@ import {
   TravelAgentLogin,
   TravelAgentRegister,
   BackOfficeLogin,
+  ViewAllSamples,
 
 } from "../pages";
 
@@ -21,6 +22,9 @@ const AppRoutes = () => {
           {/*Public Routes */}
           <Route path="/" element={<Home />} />
           <Route path="/travel-agent/register" element={<TravelAgentRegister />} />
+
+          {/*Sample Public Routes */}
+          <Route path="/sample" element={<ViewAllSamples />} />
 
           {/* Travel Agent Routes */}
           <Route path="/travel-agent/login" element={<CheckLoginStatus />}>
