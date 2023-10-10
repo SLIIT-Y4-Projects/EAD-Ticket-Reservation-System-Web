@@ -1,13 +1,15 @@
 import axios from "axios";
 import requestConfig from "./requestConfig";
-// import requestConfigJson from "./requestConfigJson";
+import requestConfigJson from "./requestConfigJson";
 
-const BASE_URL = "https://jsonplaceholder.typicode.com";
+// const BASE_URL = "https://jsonplaceholder.typicode.com";
+
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
 class SampleAPI {
   // Get 5 posts
-  static getAllPosts() {
-    return axios.get(`${BASE_URL}/posts?_limit=5`, requestConfig);
+  static getAll() {
+    return axios.get(`${BASE_URL}/api/Example/`, requestConfig);
   }
 }
 

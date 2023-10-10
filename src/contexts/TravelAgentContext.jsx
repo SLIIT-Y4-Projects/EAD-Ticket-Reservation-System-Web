@@ -4,7 +4,7 @@ import makeToast from "../components/toast";
 
 const TravelAgentContext = createContext();
 
-export const TravelAgentProvider = ({ children }) => {
+export function TravelAgentProvider  ({ children })  {
   return (
     <TravelAgentContext.Provider value={{}}>
       {children}
