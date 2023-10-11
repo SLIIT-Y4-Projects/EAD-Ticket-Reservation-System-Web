@@ -11,6 +11,11 @@ class SampleAPI {
   static getAll() {
     return axios.get(`${BASE_URL}/api/Example/`, requestConfig);
   }
+
+  static create(newSample){
+      return axios.post(`${BASE_URL}/api/Example/`, newSample, requestConfigJson);
+
+  }
 }
 
 export default SampleAPI;
