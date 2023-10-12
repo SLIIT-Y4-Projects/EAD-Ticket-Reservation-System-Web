@@ -36,7 +36,7 @@ const Header = () => {
             to="/"
             className="flex-none text-xl font-semibold dark:text-white"
           >
-            Ticket Reservation System
+            Ticket Wave System
           </Link>
           <div className="sm:hidden">
             <button

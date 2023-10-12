@@ -19,7 +19,7 @@ export function BackOfficeProvider({ children }) {
 
     BackOfficeAPI.login(values).then((response) => {
       console.log(response.data);
-      localStorage.setItem("authToken", response.data);
+      
       localStorage.setItem("username", response.data.username);
       localStorage.setItem("authToken", response.data.token);
       localStorage.setItem("permissionLevel", response.data.role);
@@ -36,8 +36,8 @@ export function BackOfficeProvider({ children }) {
   // get back office user by ID
 
   const getOne = (id) => {
-    useEffect(()=> {
-      BackOfficeAPI.getOne(id).then((response)=> {
+    useEffect(() => {
+      BackOfficeAPI.getOne(id).then((response) => {
         setBackOfficeUser(response.data);
       });
     }, []);
@@ -45,15 +45,38 @@ export function BackOfficeProvider({ children }) {
 
   // get all back office users
 
-  useEffect(()=> {
-    BackOfficeAPI.getAll().then((response)=> {
+  useEffect(() => {
+    BackOfficeAPI.getAll().then((response) => {
       setBackOfficeUsers(response.data);
     });
-  },[]);
+  }, []);
 
 
+  // edit back officer
 
+  const edit = (values) => {
+    const newUser = {
+      username: values.name,
+      fullName: values.fullName,
+    };
+    BackOfficeAPI.edit(values.id, newUser)
+      .then((response) => {
+        makeToast({ type: "success", message: "Profile Updated Successful" });
+        window.location.href = "/back-office"
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
+  // Delete Back Officer
+
+  const deleteBackOfficer = (id) => {
+    BackOfficeAPI.delete(id).then(() => {
+      setBackOfficeUsers(backOfficeUsers.filter((backOfficeUsers) => backOfficeUsers._id !== id));
+      makeToast({ type: "success", message: "Back Officer Deleted Successful" });
+    });
+  };
 
   return (
     <BackOfficeContext.Provider value={{
@@ -63,6 +86,8 @@ export function BackOfficeProvider({ children }) {
       setBackOfficeUsers,
       login,
       getOne,
+      edit,
+      deleteBackOfficer,
 
     }}>
       {children}
