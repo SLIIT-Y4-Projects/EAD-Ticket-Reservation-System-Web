@@ -24,7 +24,7 @@ class BackOfficeAPI {
     }
 
     static delete(id) {
-
+        return axios.delete(`${BASE_URL}/api/BackOfficeUser/${id}`, requestConfig);
     }
 
 }

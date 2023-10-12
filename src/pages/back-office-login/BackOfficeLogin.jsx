@@ -1,76 +1,133 @@
-import React from "react";
+import React, { useContext } from "react";
 import BackOfficeContext from "../../contexts/BackOfficeContext";
 
+
 const BackOfficeLogin = () => {
+
+  const { login } = useContext(BackOfficeContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newUser = {
+
+      username: e.target.username.value,
+      password: e.target.password.value,
+    };
+
+    login(newUser);
+
+  };
+
+
   return (
     <>
-      {/* component */}
-      {/* Container */}
-      <div className="container mx-auto">
-        <div className="flex justify-center px-6 my-12">
-          {/* Row */}
-          <div className="w-full xl:w-3/4 lg:w-11/12 flex">
-            {/* Col */}
-            <div
-              className="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg"
-              style={{
-                backgroundImage:
-                  'url("https://images.unsplash.com/photo-1639182697243-9641e4b2f4b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60/400400")',
-              }}
-            />
-            {/* Col */}
-            <div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
-              <h3 className="pt-4 text-2xl text-center">Welcome Back!</h3>
-              <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded">
-                <div className="mb-4">
-                  <label
-                    className="block mb-2 text-sm font-bold text-gray-700"
-                    htmlFor="username"
-                  >
-                    Email
-                  </label>
+      <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 px-6">
+        <div class="sm:mx-auto sm:w-full sm:max-w-md">
+          <img
+            class="mx-auto h-20 w-auto"
+            src="https://www.svgrepo.com/show/301692/login.svg"
+            alt="Workflow"
+          />
+          <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
+            Welcome Back Admin
+          </h2>
+        </div>
+
+        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+          <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+            <form onSubmit={handleSubmit}>
+              <div>
+                <label
+                  for="email"
+                  class="block text-sm font-medium leading-5  text-gray-700"
+                >
+                  Username
+                </label>
+                <div class="mt-1 relative rounded-md shadow-sm">
                   <input
-                    className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                    id="email"
-                    type="email"
-                    placeholder="Email"
+                    id="username"
+                    name="username"
+                    placeholder="username"
+                    type="text"
+                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+
                   />
+
+                  <div class="hidden absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                    <svg
+                      class="h-5 w-5 text-red-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </div>
                 </div>
-                <div className="mb-4">
-                  <label
-                    className="block mb-2 text-sm font-bold text-gray-700"
-                    htmlFor="password"
-                  >
-                    Password
-                  </label>
+              </div>
+
+              <div class="mt-6">
+                <label
+                  for="password"
+                  class="block text-sm font-medium leading-5 text-gray-700"
+                >
+                  Password
+                </label>
+                <div class="mt-1 rounded-md shadow-sm">
                   <input
-                    className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border appearance-none focus:outline-none focus:shadow-outline"
                     id="password"
+                    name="password"
                     type="password"
-                    placeholder="******************"
+                    required=""
+                    placeholder="***********"
+                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+
                   />
-                  {/* <p className="text-xs italic text-red-500">Please choose a password.</p> */}
+
                 </div>
-                <div className="mb-4">
+              </div>
+
+              <div class="mt-6 flex items-center justify-between">
+                <div class="flex items-center">
                   <input
-                    className="mr-2 leading-tight"
+                    id="remember_me"
+                    name="remember"
                     type="checkbox"
-                    id="checkbox_id"
+                    value="1"
+                    class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
                   />
-                  <label className="text-sm" htmlFor="checkbox_id">
-                    Remember Me
+                  <label
+                    for="remember_me"
+                    class="ml-2 block text-sm leading-5 text-gray-900"
+                  >
+                    Remember me
                   </label>
                 </div>
-                <div className="mb-6 text-center">
-                  <button
-                    className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
-                    type="button"
+
+                <div class="text-sm leading-5">
+                  <a
+                    href="#"
+                    class="font-medium text-blue-500 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150"
                   >
-                    Sign In
-                  </button>
+                    Forgot your password?
+                  </a>
                 </div>
-              </form>
-            </div>
+              </div>
+
+              <div class="mt-6">
+                <span class="block w-full rounded-md shadow-sm">
+                  <button
+                    type="submit"
+                    class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out"
+                  >
+                    Sign in
+                  </button>
+                </span>
+              </div>
+            </form>
           </div>
         </div>
       </div>
