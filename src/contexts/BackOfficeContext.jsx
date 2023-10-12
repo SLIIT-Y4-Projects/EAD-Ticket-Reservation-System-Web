@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import BackOfficeAPI from "./api/BackOfficeAPI";
 import makeToast from "../components/toast";
 
@@ -14,7 +14,7 @@ export function BackOfficeProvider({ children }) {
     password: "",
   });
 
-
+  // Back Office user Login
   const login = (values) => {
 
     BackOfficeAPI.login(values).then((response) => {
@@ -33,6 +33,27 @@ export function BackOfficeProvider({ children }) {
 
   };
 
+  // get back office user by ID
+
+  const getOne = (id) => {
+    useEffect(()=> {
+      BackOfficeAPI.getOne(id).then((response)=> {
+        setBackOfficeUser(response.data);
+      });
+    }, []);
+  };
+
+  // get all back office users
+
+  useEffect(()=> {
+    BackOfficeAPI.getAll().then((response)=> {
+      setBackOfficeUsers(response.data);
+    });
+  },[]);
+
+
+
+
 
   return (
     <BackOfficeContext.Provider value={{
@@ -41,6 +62,7 @@ export function BackOfficeProvider({ children }) {
       backOfficeUsers,
       setBackOfficeUsers,
       login,
+      getOne,
 
     }}>
       {children}
