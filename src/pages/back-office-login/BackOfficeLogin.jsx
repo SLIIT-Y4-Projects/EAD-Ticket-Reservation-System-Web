@@ -29,7 +29,7 @@ const BackOfficeLogin = () => {
             alt="Workflow"
           />
           <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
-            Welcome Back Admin
+            Welcome Back Officer
           </h2>
         </div>
 
