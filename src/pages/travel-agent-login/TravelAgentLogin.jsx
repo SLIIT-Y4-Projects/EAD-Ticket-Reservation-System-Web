@@ -5,115 +5,48 @@ import { Link } from "react-router-dom";
 const TravelAgentLogin = () => {
   return (
     <>
-      <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 px-6">
-        <div class="sm:mx-auto sm:w-full sm:max-w-md">
-          <img
-            class="mx-auto h-20 w-auto"
-            src="https://www.svgrepo.com/show/301692/login.svg"
-            alt="Workflow"
-          />
-          <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
-            Welcome Back Traveler
-          </h2>
-        </div>
-
-        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-          <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-            <form >
-              <div>
-                <label
-                  for="email"
-                  class="block text-sm font-medium leading-5  text-gray-700"
-                >
-                  Email address
-                </label>
-                <div class="mt-1 relative rounded-md shadow-sm">
-                  <input
-                    id="email"
-                    name="email"
-                    placeholder="user@example.com"
-                    type="email"
-                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
-                  
-                  />
-                  {/* <span className="text-red-500 text-sm">{emailError}</span> */}
-                  <div class="hidden absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                    <svg
-                      class="h-5 w-5 text-red-500"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mt-6">
-                <label
-                  for="password"
-                  class="block text-sm font-medium leading-5 text-gray-700"
-                >
-                  Password
-                </label>
-                <div class="mt-1 rounded-md shadow-sm">
-                  <input
-                    id="password"
-                    name="password"
-                    type="password"
-                    required=""
-                    placeholder="***********"
-                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
-                   
-                  />
-                  {/* <span className="text-red-500 text-sm">{passwordError}</span> */}
-                </div>
-              </div>
-
-              <div class="mt-6 flex items-center justify-between">
-                <div class="flex items-center">
-                  <input
-                    id="remember_me"
-                    name="remember"
-                    type="checkbox"
-                    value="1"
-                    class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
-                  />
-                  <label
-                    for="remember_me"
-                    class="ml-2 block text-sm leading-5 text-gray-900"
-                  >
-                    Remember me
+       <div className="container mx-auto">
+        <div className="flex justify-center px-6 my-12">
+          {/* Row */}
+          <div className="w-full xl:w-3/4 lg:w-11/12 flex">
+            {/* Col */}
+            <div className="w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg" style={{backgroundImage: 'url("https://images.unsplash.com/photo-1524850011238-e3d235c7d4c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80")'}} />
+            {/* Col */}
+            <div className="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
+              <h3 className="pt-4 text-2xl text-center">Create an Account!</h3>
+              <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+               
+                <div className="mb-4">
+                  <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="email">
+                    Email
                   </label>
+                  <input className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Email" />
                 </div>
-
-                <div class="text-sm leading-5">
-                  <Link to="/travel-agent/register">
-                  <a
-                    href="#"
-                    class="font-medium text-blue-500 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150"
-                  >
-                    Create account?
-                  </a>
-                  </Link>
+                <div className="mb-4">
+                  <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="email">
+                    Email
+                  </label>
+                  <input className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Email" />
                 </div>
-              </div>
-
-              <div class="mt-6">
-                <span class="block w-full rounded-md shadow-sm">
-                  <button
-                    type="submit"
-                    class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out"
-                  >
-                    Sign in
+                
+                <div className="mb-6 text-center">
+                  <button className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline" type="button">
+                    Register Account
                   </button>
-                </span>
-              </div>
-            </form>
+                </div>
+                <hr className="mb-6 border-t" />
+                <div className="text-center">
+                  <a className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="#">
+                    Forgot Password?
+                  </a>
+                </div>
+                <div className="text-center">
+                  <a className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="./index.html">
+                    Already have an account? Login!
+                  </a>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
