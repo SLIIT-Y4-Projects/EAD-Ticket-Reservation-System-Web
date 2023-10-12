@@ -5,36 +5,58 @@ import { Link } from "react-router-dom";
 const TravelAgentRegister = () => {
   return (
     <>
-        
-        {/* <section className="flex flex-col items-center pt-6">
-        <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">Create an
-              account
-            </h1>
-            <form className="space-y-4 md:space-y-6" method="POST">
-              <div>
-                <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your full name</label>
-                <input type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Emelia Erickson" required />
-              </div>
-              <div>
-                <label htmlFor="username" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
-                <input type="text" name="username" id="username" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="emelia_erickson24" required />
-              </div>
-              <div>
-                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
-              </div>
-              <button type="submit" className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create an account</button>
-              <p className="text-sm font-light text-gray-500 dark:text-gray-400">Already have an account? <a className="font-medium text-blue-600 hover:underline dark:text-blue-500" href="/signin">Sign in here</a>
-              </p>
-            </form>
+      <div className="container mx-auto">
+        <div className="flex justify-center px-6 my-12">
+
+          <div className="w-full xl:w-3/4 lg:w-11/12 flex">
+
+            <div className="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg" style={{ backgroundImage: 'url("https://www.pinnacle-travel.com/wp-content/uploads/2022/11/travel-agent-with-customers-scaled.jpg")' }} />
+
+            <div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
+              <h3 className="pt-4 text-2xl text-center">Create an Account</h3>
+              <h3 className="pt-4 text-2xl text-center">as</h3>
+              <h3 className="pt-4 text-2xl text-center font-bold">Travel Agent</h3>
+              <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+                <div className="mb-8">
+                  <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="username">
+                    Full Name
+                  </label>
+                  <input className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Full Name" />
+                </div>
+                <div className="mb-8">
+                  <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="username">
+                    User Name
+                  </label>
+                  <input className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" />
+                </div>
+                <div className="mb-8">
+                  <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="password">
+                    Password
+                  </label>
+                  <input className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" />
+
+                </div>
+
+                <div className="mb-6 text-center">
+                  <button className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline" type="button">
+                    Sign Up
+                  </button>
+                </div>
+                <hr className="mb-6 border-t" />
+                <div className="text-center">
+                  <Link to="/travel-agent/login">
+                  <a className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="#">
+                    Already have an account here? login here !
+                  </a>
+                  </Link>
+                </div>
+              
+                
+              </form>
+            </div>
           </div>
         </div>
-      </section> */}
-
-
-
+      </div>
     </>
   );
 };
