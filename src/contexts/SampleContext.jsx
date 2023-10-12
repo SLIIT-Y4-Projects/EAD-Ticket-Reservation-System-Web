@@ -5,7 +5,7 @@ import makeToast from "../components/toast";
 
 const SampleContext = createContext();
 
-export function SampleProvider ({ children })  {
+export function SampleProvider({ children }) {
   // const {
   //   data: posts,
   //   isLoading: postsLoading,
@@ -19,17 +19,21 @@ export function SampleProvider ({ children })  {
   // });
   const [samples, setSamples] = useState([]);
 
-
-  useEffect(()=> {
-    console.log("test1");
-    SampleAPI.getAll().then((response)=> {
-      console.log("test2");
+  useEffect(() => {
+    SampleAPI.getAll().then((response) => {
       setSamples(response.data);
     });
   }, []);
 
-
-
+  const createSample = async (newSample) => {
+    try {
+      const response = await SampleAPI.create(newSample);
+      setSamples([...samples, response.data]);
+      makeToast({ type: "success", message: "Create Sample successful" });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <SampleContext.Provider
@@ -39,12 +43,12 @@ export function SampleProvider ({ children })  {
         // refetchPosts,
         samples,
         setSamples,
-        
+        createSample,
       }}
     >
       {children}
     </SampleContext.Provider>
   );
-};
+}
 
 export default SampleContext;
