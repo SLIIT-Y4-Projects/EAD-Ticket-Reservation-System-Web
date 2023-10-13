@@ -10,6 +10,7 @@ import UserManagement from "./back-officer-user-management";
 import TrainManagement from "./back-office-train-management";
 import CreateTrain from "./back-office-create-train";
 import DeActiveUsers from "./back-officer-deactive-users";
+import DeActiveTrains from "./back-office-deactive-train";
 
 export {
     Home,
@@ -24,4 +25,5 @@ export {
     TrainManagement,
     CreateTrain,
     DeActiveUsers,
+    DeActiveTrains,
 }

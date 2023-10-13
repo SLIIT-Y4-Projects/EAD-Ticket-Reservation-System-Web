@@ -1,29 +1,31 @@
 import React, { useState, useContext } from "react";
-import UserContext from "../../contexts/UserContext";
+import TrainContext from "../../contexts/TrainContext"
 import { Link } from "react-router-dom";
 
-const DeActiveUsers = () => {
+const DeActiveTrains = ()=> {
 
-    const { users, activeUser } = useContext(UserContext);
+    const {trains, activeTrain} = useContext(TrainContext);
     const [id, setId] = useState(null);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        activeUser(id);
-        //activeUser(status);
+        activeTrain(id);
+//activeUser(status);
     };
 
-    const ChangeStatus = (e) => {
-        console.log("id--> " + id);
-        activeUser(id);
+    const ChangeStatus=(e)=>{
+        console.log("id--> "+id);
+        activeTrain(id);
     }
+
 
     return (
         <>
-            <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
-                DeActive User Management
+        
+        <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
+                DeActive Train Management
             </h2>
-
+        
             <form className="mt-10 mx-auto max-w-xl py-2 px-6 rounded-full bg-gray-50 border flex focus-within:border-gray-300">
                 <input type="text" placeholder="Search anything" className="bg-transparent w-full focus:outline-none pr-4 font-semibold border-0 focus:ring-0 px-0 py-0" name="topic" /><button className="flex flex-row items-center justify-center min-w-[130px] px-4 rounded-full font-medium tracking-wide border disabled:cursor-not-allowed disabled:opacity-50 transition ease-in-out duration-150 text-base bg-black text-white font-medium tracking-wide border-transparent py-1.5 h-[38px] -mr-3">
                     Search
@@ -34,64 +36,66 @@ const DeActiveUsers = () => {
                 <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
                     <thead className="bg-gray-50">
                         <tr>
-                            <th scope="col" className="px-6 py-4 font-medium text-gray-900">Full Name</th>
-                            <th scope="col" className="px-6 py-4 font-medium text-gray-900">User Name</th>
+                            <th scope="col" className="px-6 py-4 font-medium text-gray-900">Train Number</th>
+                            <th scope="col" className="px-6 py-4 font-medium text-gray-900">Departure Time</th>
                             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Status</th>
+                            <th scope="col" className="px-6 py-4 font-medium text-gray-900">Capacity</th>
                             <th scope="col" className="px-6 py-4 font-medium text-gray-900"></th>
                         </tr>
                     </thead>
-                    {users.filter((elem) => elem.status == "INACTIVE")
+                    {trains.filter((elem) => elem.status == "INACTIVE")
 
-                        .map((user) => (
-                            <tbody className="divide-y divide-gray-100 border-t border-gray-100" key={user._id}>
+                        .map((train) => (
+                            <tbody className="divide-y divide-gray-100 border-t border-gray-100" key={train._id}>
 
                                 <tr className="hover:bg-gray-50">
                                     <th className="flex gap-3 px-6 py-4 font-normal text-gray-900">
 
                                         <div className="text-sm">
-                                            <div className="font-medium text-gray-700">{user.fullName}</div>
+                                            <div className="font-medium text-gray-700">{train.trainNumber}</div>
 
                                         </div>
                                     </th>
                                     <td className="px-6 py-4">
                                         <div className="text-sm">
-                                            <div className="font-medium text-gray-700">{user.username}</div>
+                                            <div className="font-medium text-gray-700">{train.departureTime.slice(0,10)}</div>
 
                                         </div>
                                     </td>
-
+                                    
+                                    
                                     <td className="px-6 py-4">
-
-                                        {id === user.id ? (
-                                            <div>
-                                                <form onSubmit={handleSubmit}>
-                                                    {/* eslint-disable-next-line no-console */}
-                                                    {console.log(id)}
-                                                    <select name="status" id="status" defaultValue={user.status}>
-                                                        <option value="ACCEPT">Activate</option>
-                                                    </select>
-                                                    <div>
-                                                        <button
-                                                            className="bg-green-500 p-1 rounded-sm text-white"
-                                                            type="submit"
-                                                            value="Submit"
-                                                        >
-                                                            change Status
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        ) : (
-                                            <div>
-                                                <div>{user.status}</div>
-                                                <button
-                                                    className="bg-red-500 p-1 rounded-sm text-white"
-                                                    onClick={() => setId(user.id)}
-                                                >
-                                                    change
-                                                </button>
-                                            </div>
-                                        )}
+                                    
+                                    {id === train.id ? (
+														<div>
+															<form onSubmit={handleSubmit}>
+																{/* eslint-disable-next-line no-console */}
+																{console.log(id)}
+																<select name="status" id="status" defaultValue={train.status}>
+																	<option value="ACCEPT">Activate</option>
+																</select>
+																<div>
+																	<button
+																		className="bg-green-500 p-1 rounded-sm text-white"
+																		type="submit"
+																		value="Submit"
+																	>
+																		change Status
+																	</button>
+																</div>
+															</form>
+														</div>
+													) : (
+														<div>
+															<div>{train.status}</div>
+															<button
+																className="bg-red-500 p-1 rounded-sm text-white"
+																onClick={() => setId(train.id)}
+															>
+																change
+															</button>
+														</div>
+													)}
                                     </td>
 
 
@@ -115,14 +119,13 @@ const DeActiveUsers = () => {
 
                             </tbody>
                         ))}
+
+                        
                 </table>
 
             </div>
-
         </>
     );
-
-
 };
 
-export default DeActiveUsers;
+export default DeActiveTrains;
