@@ -5,18 +5,18 @@ import { Link } from "react-router-dom";
 const DeActiveUsers = () => {
 
     const { users, activeUser } = useContext(UserContext);
-    const [status, setStatus] = useState(null);
+    const [id, setId] = useState(null);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        const newUser = {
-            id: status,
-            status: e.target.status.value,
-        };
-
-        activeUser(newUser);
+        activeUser(id);
+//activeUser(status);
     };
+
+    const ChangeStatus=(e)=>{
+        console.log("id--> "+id);
+        activeUser(id);
+    }
 
     return (
         <>
@@ -40,52 +40,58 @@ const DeActiveUsers = () => {
                             <th scope="col" className="px-6 py-4 font-medium text-gray-900"></th>
                         </tr>
                     </thead>
-                    {users.filter((elem) => elem.status == "DEACTIVE")
+                    {users.filter((elem) => elem.status == "INACTIVE")
 
-                        .map((elem) => (
-                            <tbody className="divide-y divide-gray-100 border-t border-gray-100" key={elem._id}>
+                        .map((user) => (
+                            <tbody className="divide-y divide-gray-100 border-t border-gray-100" key={user._id}>
 
                                 <tr className="hover:bg-gray-50">
                                     <th className="flex gap-3 px-6 py-4 font-normal text-gray-900">
 
                                         <div className="text-sm">
-                                            <div className="font-medium text-gray-700">{elem.fullName}</div>
+                                            <div className="font-medium text-gray-700">{user.fullName}</div>
 
                                         </div>
                                     </th>
                                     <td className="px-6 py-4">
                                         <div className="text-sm">
-                                            <div className="font-medium text-gray-700">{elem.username}</div>
+                                            <div className="font-medium text-gray-700">{user.username}</div>
 
                                         </div>
                                     </td>
+                                    
                                     <td className="px-6 py-4">
-                                        <form onSubmit={handleSubmit}>
-                                            <span className="inline-flex items-center gap-1 rounded-full bg-red-50 px-2 py-1 text-xs font-semibold text-red-600">
-                                                <span className="h-1.5 w-1.5 rounded-full bg-red-600" />
-
-
-
-                                                <select name="status" id="status" defaultValue={elem.status}>
-                                                    <option value="ACTIVE">ACTIVE</option>
-                                                    <option value="DEACTIVE">DEACTIVE</option>
-                                                </select>
-                                                <div>
-
-                                                </div>
-
-                                                <div>
-                                                    {/* <div>{elem.status}</div> */}
-                                                    <button
-                                                        className="bg-red-500 p-1 rounded-sm text-white"
-                                                        type="submit"
-                                                    >
-                                                        change
-                                                    </button>
-                                                </div>
-
-                                            </span>
-                                        </form>
+                                    
+                                    {id === user.id ? (
+														<div>
+															<form onSubmit={handleSubmit}>
+																{/* eslint-disable-next-line no-console */}
+																{console.log(id)}
+																<select name="status" id="status" defaultValue={user.status}>
+																	<option value="ACCEPT">Activate</option>
+																</select>
+																<div>
+																	<button
+																		className="bg-green-500 p-1 rounded-sm text-white"
+																		type="submit"
+																		value="Submit"
+																	>
+																		change Status
+																	</button>
+																</div>
+															</form>
+														</div>
+													) : (
+														<div>
+															<div>{user.status}</div>
+															<button
+																className="bg-red-500 p-1 rounded-sm text-white"
+																onClick={() => setId(user.id)}
+															>
+																change
+															</button>
+														</div>
+													)}
                                     </td>
 
 

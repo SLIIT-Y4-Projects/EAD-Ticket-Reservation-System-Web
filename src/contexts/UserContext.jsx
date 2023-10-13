@@ -62,12 +62,9 @@ export function UserProvider({ children }) {
     });
   }, []);
 
-  const activeUser = (values) => {
-    const newUser = {
-      status: values.status,
-    };
-
-    UserAPI.activeUser(values.id, newUser)
+  const activeUser = (id) => {
+   console.log("id--",id)
+    UserAPI.activeUser(id)
       .then((response) => {
         makeToast({ type: "success", message: "User Activated" });
         window.location.href = "/back-office/user-management";

@@ -26,8 +26,8 @@ class UserAPI {
             return axios.put(`${BASE_URL}/api/TravellerUser/${id}`,values, requestConfigJson)
         }
 
-        static activeUser(id, values){
-            return axios.put(`$${BASE_URL}/api/TravellerUser/activate/${id}`, values, requestConfigJson)
+        static activeUser(id,values){
+            return axios.put(`${BASE_URL}/api/TravellerUser/activate/${id}`,values, requestConfigJson)
         }
 
         static deactivateUser(id, values) {
