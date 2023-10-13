@@ -78,7 +78,7 @@ const BackOfficeDashboard = () => {
                   <h5 className="text-xl text-center mb-2 font-bold">User Management</h5>
 
                   {/*Image First   */}
-                  <Link to="back-officer/user-management">
+                  <Link to="/back-office/user-management">
                     <img
                       src="/tes.svg"
                     />
@@ -93,7 +93,7 @@ const BackOfficeDashboard = () => {
 
                   {/* Second Image  */}
 
-                  <Link to="back-officer/user-management">
+                  <Link to="/back-office/train-management">
                     <img
                       src="/train.svg"
                     />

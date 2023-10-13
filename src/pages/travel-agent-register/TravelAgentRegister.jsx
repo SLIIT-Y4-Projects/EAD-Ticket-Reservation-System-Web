@@ -3,6 +3,22 @@ import TravelAgentContext from "../../contexts/TravelAgentContext";
 import { Link } from "react-router-dom";
 
 const TravelAgentRegister = () => {
+
+    const {register} = useContext(TravelAgentContext);
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+
+      const newUser = {
+        fullName: e.target.fullName.value,
+        username: e.target.username.value,
+        password: e.target.password.value,
+      };
+
+      register(newUser);
+    };
+
+
   return (
     <>
       <div className="container mx-auto">
@@ -16,12 +32,12 @@ const TravelAgentRegister = () => {
               <h3 className="pt-4 text-2xl text-center">Create an Account</h3>
               <h3 className="pt-4 text-2xl text-center">as</h3>
               <h3 className="pt-4 text-2xl text-center font-bold">Travel Agent</h3>
-              <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+              <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded" onSubmit={handleSubmit}>
                 <div className="mb-8">
-                  <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="username">
+                  <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="fullName">
                     Full Name
                   </label>
-                  <input className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Full Name" />
+                  <input className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" id="fullName" type="text" placeholder="Full Name" />
                 </div>
                 <div className="mb-8">
                   <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="username">
@@ -38,7 +54,7 @@ const TravelAgentRegister = () => {
                 </div>
 
                 <div className="mb-6 text-center">
-                  <button className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline" type="button">
+                  <button className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline" type="submit">
                     Sign Up
                   </button>
                 </div>
