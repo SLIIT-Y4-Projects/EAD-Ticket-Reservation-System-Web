@@ -18,10 +18,10 @@ export function TrainProvider({ children }) {
     // Insert new train
     const createTrain = async (newTrain) => {
         try {
-            const response = await TrainAPI.createTrain(newTrain);
+            const response = await TrainAPI.create(newTrain);
             setTrains([...trains, response.data]);
             makeToast({ type: "success", message: "Train inserted successful" });
-            window.location.href = ""
+            window.location.href = "/back-office/train-management"
 
         } catch (error) {
             console.log(error);
@@ -49,7 +49,7 @@ export function TrainProvider({ children }) {
         TrainAPI.deleteTrain(id).then(() => {
             setTrains(trains.filter((trains) => trains.id !== id));
             makeToast({ type: "success", message: "Train Deleted Successful" });
-            window.location.href = ""
+            window.location.href = "/back-office/train-management"
         });
     };
 
@@ -88,7 +88,7 @@ export function TrainProvider({ children }) {
             capacity: values.capacity,
             status: values.status,
         };
-        TrainAPI.editTrain(values.id, newUser)
+        TrainAPI.edit(values.id, newTrain)
             .then((response) => {
                 makeToast({ type: "success", message: "Train Updated Successful" });
                 window.location.href = ""
@@ -111,6 +111,8 @@ export function TrainProvider({ children }) {
                 deleteTrain,
                 activeTrain,
                 editTrain,
+                getOne,
+                cancelTrain,
             }}
 
         >

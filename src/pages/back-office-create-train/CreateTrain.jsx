@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import TrainContext from "../../contexts/TrainContext"
 import { Link } from "react-router-dom";
 
 const CreateTrain = () => {
 
+  const {createTrain} = useContext(TrainContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newTrain = {
+      trainNumber: e.target.trainNumber.value,
+      departureTime: e.target.departureTime.value,
+      capacity: e.target.capacity.value,
+    };
+
+    createTrain(newTrain);
+
+  };
 
   return (
 
@@ -17,11 +31,11 @@ const CreateTrain = () => {
         </div>
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-            <form>
+            <form onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium leading-5  text-gray-700">Train Number</label>
                 <div className="mt-1 relative rounded-md shadow-sm">
-                  <input id="name" name="name" placeholder="Train Number" type="text" className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                  <input id="trainNumber" name="name" placeholder="Train Number" type="text" className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                   <div className="hidden absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                     <svg className="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd">
@@ -35,7 +49,7 @@ const CreateTrain = () => {
                   Departure
                 </label>
                 <div className="mt-1 relative rounded-md shadow-sm">
-                  <input id="email" type="date" required defaultValue className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5
+                  <input id="departureTime" type="date" required defaultValue className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5
                 " />
                   <div className="hidden absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                     <svg className="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
