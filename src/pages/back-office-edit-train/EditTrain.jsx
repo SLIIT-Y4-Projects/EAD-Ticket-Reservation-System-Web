@@ -23,6 +23,8 @@ const EditTrain = () => {
             capacity: e.target.capacity.value,
 
         };
+
+        editTrain(newTrain);
     };
 
 
@@ -37,7 +39,7 @@ const EditTrain = () => {
                 </div>
                 <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
                     <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                        <form >
+                        <form  onSubmit={handleSubmit}>
                             <div>
                                 <label htmlFor="email" className="block text-sm font-medium leading-5  text-gray-700">Train Number</label>
                                 <div className="mt-1 relative rounded-md shadow-sm">
@@ -45,6 +47,7 @@ const EditTrain = () => {
                                     id="trainNumber" 
                                     name="name" 
                                     value={train.trainNumber}
+                                    onChange={handleChange}
                                     placeholder="Train Number" type="text" className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                                     <div className="hidden absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                                         <svg className="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
@@ -60,6 +63,7 @@ const EditTrain = () => {
                                 </label>
                                 <div className="mt-1 relative rounded-md shadow-sm">
                                     <input id="departureTime" value={train.departureTime}
+                                    onChange={handleChange}
                                     type="date" required defaultValue className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5
                 " />
                                     <div className="hidden absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
@@ -76,6 +80,7 @@ const EditTrain = () => {
                                 <div className="mt-1 rounded-md shadow-sm">
                                     <input id="capacity" 
                                     value={train.capacity}
+                                    onChange={handleChange}
                                     type="text" required className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="Capacity" />
                                 </div>
                             </div>
