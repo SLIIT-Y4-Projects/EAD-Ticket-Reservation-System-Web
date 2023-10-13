@@ -11,6 +11,7 @@ import TrainManagement from "./back-office-train-management";
 import CreateTrain from "./back-office-create-train";
 import DeActiveUsers from "./back-officer-deactive-users";
 import DeActiveTrains from "./back-office-deactive-train";
+import EditTrain from "./back-office-edit-train";
 
 export {
     Home,
@@ -26,4 +27,5 @@ export {
     CreateTrain,
     DeActiveUsers,
     DeActiveTrains,
+    EditTrain,
 }

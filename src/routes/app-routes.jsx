@@ -18,6 +18,7 @@ import {
   CreateTrain,
   DeActiveUsers,
   DeActiveTrains,
+  EditTrain,
 
 } from "../pages";
 
@@ -62,6 +63,7 @@ const AppRoutes = () => {
           <Route path="/back-office/train-create" element={< CreateTrain />} />
           <Route path="/back-office/de-active/users" element={< DeActiveUsers />} />
           <Route path="/back-office/cancel/trains" element={< DeActiveTrains />} />
+          <Route path="/back-office/trains-edit/:id" element={< EditTrain />} />
           </Route>
 
         </Routes>
