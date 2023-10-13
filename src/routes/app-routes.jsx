@@ -19,6 +19,7 @@ import {
   DeActiveUsers,
   DeActiveTrains,
   EditTrain,
+  TrainList
 
 } from "../pages";
 
@@ -64,6 +65,11 @@ const AppRoutes = () => {
           <Route path="/back-office/de-active/users" element={< DeActiveUsers />} />
           <Route path="/back-office/cancel/trains" element={< DeActiveTrains />} />
           <Route path="/back-office/trains-edit/:id" element={< EditTrain />} />
+          </Route>
+
+          <Route>
+          <Route path="/train-list" element={< TrainList />} />
+
           </Route>
 
         </Routes>
