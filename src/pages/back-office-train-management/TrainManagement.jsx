@@ -1,15 +1,16 @@
 import React from "react";
-import UserContext from "../../contexts/UserContext";
+import TrainContext from "../../contexts/TrainContext"
 import { Link } from "react-router-dom";
 
-
-const UserManagement = () => {
+const TrainManagement = () => {
 
     return (
         <>
+
             <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
-                User Management
+                Train Management
             </h2>
+
             <form className="mt-10 mx-auto max-w-xl py-2 px-6 rounded-full bg-gray-50 border flex focus-within:border-gray-300">
                 <input type="text" placeholder="Search anything" className="bg-transparent w-full focus:outline-none pr-4 font-semibold border-0 focus:ring-0 px-0 py-0" name="topic" /><button className="flex flex-row items-center justify-center min-w-[130px] px-4 rounded-full font-medium tracking-wide border disabled:cursor-not-allowed disabled:opacity-50 transition ease-in-out duration-150 text-base bg-black text-white font-medium tracking-wide border-transparent py-1.5 h-[38px] -mr-3">
                     Search
@@ -263,10 +264,21 @@ const UserManagement = () => {
                 </table>
             </div>
 
+            <div className="ml-10">
+                <Link to= "/back-office/train-create">
+                <button
+                    type="submit"
+                    class="w-1/12 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out"
+                >
+                    Create Train
+                </button>
+                </Link>
+            </div>
+
+
         </>
     );
 
-
 };
 
-export default UserManagement;
+export default TrainManagement;

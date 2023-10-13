@@ -12,6 +12,9 @@ import {
   ViewAllSamples,
   SampleCreateUser,
   BackOfficeDashboard,
+  TravelAgentDashboard,
+  UserManagement,
+  TrainManagement,
 
 } from "../pages";
 
@@ -36,6 +39,12 @@ const AppRoutes = () => {
           <Route path="/travel-agent/login" element={<TravelAgentLogin />} />
           </Route>
 
+          {/* Travel Agent private routes */}
+          <Route exact path="/travel-agent"element={<PrivateRoute permissionLevel="TRAVEL_AGENT" />}>
+          <Route path="/travel-agent" element={< TravelAgentDashboard />} />
+            </Route>
+
+
 
           {/* Back Office Routes */}
           <Route path="/back-office/login" element={<CheckLoginStatus />}>
@@ -45,7 +54,8 @@ const AppRoutes = () => {
           {/* Back office Private Routes */}
           <Route exact path="/back-office"element={<PrivateRoute permissionLevel="BACK_OFFICE" />}>
           <Route path="/back-office" element={<BackOfficeDashboard />} />
-
+          <Route path="/back-office/user-management" element={<UserManagement />} />
+          <Route path="/back-office/train-management" element={< TrainManagement />} />
           </Route>
 
         </Routes>
