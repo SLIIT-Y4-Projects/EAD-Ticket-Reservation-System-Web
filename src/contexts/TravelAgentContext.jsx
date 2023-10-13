@@ -29,7 +29,7 @@ export function TravelAgentProvider({ children }) {
       window.location.href = "/travel-agent"
     })
       .catch((error) => {
-        makeToast({ type: "error", message: "Invalid Email or Password" });
+        makeToast({ type: "error", message: "Invalid User Name or Password" });
         console.log(error);
       });
   };

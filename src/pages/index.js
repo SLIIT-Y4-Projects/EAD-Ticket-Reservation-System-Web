@@ -8,6 +8,8 @@ import BackOfficeDashboard from "./back-office-dashboard";
 import TravelAgentDashboard from "./travel-agent-dashboard";
 import UserManagement from "./back-officer-user-management";
 import TrainManagement from "./back-office-train-management";
+import CreateTrain from "./back-office-create-train";
+import DeActiveUsers from "./back-officer-deactive-users";
 
 export {
     Home,
@@ -20,4 +22,6 @@ export {
     TravelAgentDashboard,
     UserManagement,
     TrainManagement,
+    CreateTrain,
+    DeActiveUsers,
 }

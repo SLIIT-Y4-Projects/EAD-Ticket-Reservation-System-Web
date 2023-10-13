@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import UserContext from "../../contexts/UserContext";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
 
+const DeActiveUsers = () => {
 
-const UserManagement = () => {
+    const { users, activeUser } = useContext(UserContext);
+    const [status, setStatus] = useState(null);
 
-    const { users } = useContext(UserContext);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const newUser = {
+            id: status,
+            status: e.target.status.value,
+        };
+
+        activeUser(newUser);
+    };
 
     return (
         <>
             <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
-                Active User Management
+                DeActive User Management
             </h2>
+
             <form className="mt-10 mx-auto max-w-xl py-2 px-6 rounded-full bg-gray-50 border flex focus-within:border-gray-300">
                 <input type="text" placeholder="Search anything" className="bg-transparent w-full focus:outline-none pr-4 font-semibold border-0 focus:ring-0 px-0 py-0" name="topic" /><button className="flex flex-row items-center justify-center min-w-[130px] px-4 rounded-full font-medium tracking-wide border disabled:cursor-not-allowed disabled:opacity-50 transition ease-in-out duration-150 text-base bg-black text-white font-medium tracking-wide border-transparent py-1.5 h-[38px] -mr-3">
                     Search
@@ -29,10 +40,11 @@ const UserManagement = () => {
                             <th scope="col" className="px-6 py-4 font-medium text-gray-900"></th>
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-gray-100 border-t border-gray-100">
-                        {users.filter((elem) => elem.status == "ACTIVE")
+                    {users.filter((elem) => elem.status == "DEACTIVE")
 
-                            .map((elem) => (
+                        .map((elem) => (
+                            <tbody className="divide-y divide-gray-100 border-t border-gray-100" key={elem._id}>
+
                                 <tr className="hover:bg-gray-50">
                                     <th className="flex gap-3 px-6 py-4 font-normal text-gray-900">
 
@@ -48,12 +60,35 @@ const UserManagement = () => {
                                         </div>
                                     </td>
                                     <td className="px-6 py-4">
+                                        <form onSubmit={handleSubmit}>
+                                            <span className="inline-flex items-center gap-1 rounded-full bg-red-50 px-2 py-1 text-xs font-semibold text-red-600">
+                                                <span className="h-1.5 w-1.5 rounded-full bg-red-600" />
 
-                                        <span className="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600">
-                                            <span className="h-1.5 w-1.5 rounded-full bg-green-600" />
-                                            {elem.status}
-                                        </span>
+
+
+                                                <select name="status" id="status" defaultValue={elem.status}>
+                                                    <option value="ACTIVE">ACTIVE</option>
+                                                    <option value="DEACTIVE">DEACTIVE</option>
+                                                </select>
+                                                <div>
+
+                                                </div>
+
+                                                <div>
+                                                    {/* <div>{elem.status}</div> */}
+                                                    <button
+                                                        className="bg-red-500 p-1 rounded-sm text-white"
+                                                        type="submit"
+                                                    >
+                                                        change
+                                                    </button>
+                                                </div>
+
+                                            </span>
+                                        </form>
                                     </td>
+
+
 
                                     <td className="px-6 py-4">
                                         <div className="flex justify-end gap-4">
@@ -71,18 +106,12 @@ const UserManagement = () => {
                                     </td>
 
                                 </tr>
-                            ))}
-                    </tbody>
+
+                            </tbody>
+                        ))}
                 </table>
+
             </div>
-            <Link to="/back-office/de-active/users">
-            <button type="button" className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-blue-800 ml-8">
-                DeActive Users
-                <svg className="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M1 5h12m0 0L9 1m4 4L9 9" />
-                </svg>
-            </button>
-            </Link>
 
         </>
     );
@@ -90,4 +119,4 @@ const UserManagement = () => {
 
 };
 
-export default UserManagement;
+export default DeActiveUsers;
