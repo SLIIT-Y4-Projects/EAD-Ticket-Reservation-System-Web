@@ -103,7 +103,13 @@ const BackOfficeDashboard = () => {
               <div>
                 <div className="lg:h-full py-8 px-6 text-gray-600 rounded-xl border border-gray-200 bg-white">
 
-                  <h5 className="text-xl text-gray-700">Downloads</h5>
+                <h5 className="text-xl text-center mb-2 font-bold">Ticket Reservation Management</h5>
+
+                <Link to="/back-office/train-management">
+                    <img
+                      src="/ticket.svg"
+                    />
+                  </Link>
                 </div>
               </div>
 

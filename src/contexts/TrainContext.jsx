@@ -83,15 +83,16 @@ export function TrainProvider({ children }) {
     // Edit train details
     const editTrain = (values) => {
         const newTrain = {
+            id: values.id,
             trainNumber: values.trainNumber,
             departureTime: values.departureTime,
             capacity: values.capacity,
-            status: values.status,
+           
         };
         TrainAPI.edit(values.id, newTrain)
             .then((response) => {
                 makeToast({ type: "success", message: "Train Updated Successful" });
-                window.location.href = ""
+                window.location.href = "/back-office/train-management"
             })
             .catch((error) => {
                 console.log(error);
