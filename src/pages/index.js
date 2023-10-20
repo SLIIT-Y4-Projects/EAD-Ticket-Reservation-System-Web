@@ -13,6 +13,7 @@ import DeActiveUsers from "./back-officer-deactive-users";
 import DeActiveTrains from "./back-office-deactive-train";
 import EditTrain from "./back-office-edit-train";
 import TrainList from "./train-list";
+import AllReservation from "./back-office-all-reservation";
 
 export {
     Home,
@@ -29,5 +30,6 @@ export {
     DeActiveUsers,
     DeActiveTrains,
     EditTrain,
-    TrainList
+    TrainList,
+    AllReservation,
 }
