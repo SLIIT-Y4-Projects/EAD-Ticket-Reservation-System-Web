@@ -14,6 +14,7 @@ import DeActiveTrains from "./back-office-deactive-train";
 import EditTrain from "./back-office-edit-train";
 import TrainList from "./train-list";
 import AllReservation from "./back-office-all-reservation";
+import TravelAgentTrainManagement from "./travel-agent-train-management";
 
 export {
     Home,
@@ -32,4 +33,5 @@ export {
     EditTrain,
     TrainList,
     AllReservation,
+    TravelAgentTrainManagement,
 }
