@@ -35,6 +35,6 @@ export {
     EditTrain,
     TrainList,
     AllReservation,
-    ReservationAdd
+    ReservationAdd,
     TravelAgentTrainManagement,
 }
