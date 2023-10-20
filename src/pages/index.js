@@ -15,6 +15,8 @@ import EditTrain from "./back-office-edit-train";
 import TrainList from "./train-list";
 import AllReservation from "./back-office-all-reservation";
 import ReservationAdd from "./reservation-add";
+import TravelAgentTrainManagement from "./travel-agent-train-management";
+
 
 export {
     Home,
@@ -34,4 +36,5 @@ export {
     TrainList,
     AllReservation,
     ReservationAdd
+    TravelAgentTrainManagement,
 }

@@ -7,8 +7,6 @@ const TravelAgentDashboard = () => {
 
   return (
     <>
-
-
       <div className="mt-6">
         {/* component */}
         <aside className="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-white transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
@@ -83,17 +81,20 @@ const TravelAgentDashboard = () => {
                 </div>
               </a>
             </div>
-            {/* product - end */}
-            {/* product - start */}
+           
+
+           <Link to="/travel-agent/train/details">
             <div>
               <a href="#" className="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-                <img src="https://images.unsplash.com/photo-1603344797033-f0f4f587ab60?auto=format&q=75&fit=crop&crop=top&w=600&h=700" loading="lazy" alt="Photo by engin akyurt" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+                <img src="https://images.unsplash.com/photo-1514250609276-c577268ef8fb?auto=format&fit=crop&q=80&w=1970&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" loading="lazy" alt="Photo by engin akyurt" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+                
                 <div className="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-                  <span className="text-gray-500">Women</span>
-                  <span className="text-lg font-bold text-gray-800 lg:text-xl">Summer Season</span>
-                </div>
+                  <span className="text-gray-500">🚆 Train</span>
+                  <span className="text-lg font-bold text-gray-800 lg:text-xl">Train Management</span>            
+                </div>             
               </a>
             </div>
+          </Link>
             {/* product - end */}
             {/* product - start */}
             <div>

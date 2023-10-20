@@ -22,6 +22,7 @@ import {
   TrainList,
   AllReservation,
   ReservationAdd
+  TravelAgentTrainManagement,
 
 } from "../pages";
 
@@ -49,6 +50,7 @@ const AppRoutes = () => {
           {/* Travel Agent private routes */}
           <Route exact path="/travel-agent"element={<PrivateRoute permissionLevel="TRAVEL_AGENT" />}>
           <Route path="/travel-agent" element={< TravelAgentDashboard />} />
+          <Route path="/travel-agent/train/details" element={< TravelAgentTrainManagement />} />
             </Route>
 
 
