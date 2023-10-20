@@ -6,12 +6,19 @@ import { useContext } from "react";
 
 const UserManagement = () => {
 
-    const { users } = useContext(UserContext);
+    const { users , user , deactivateUser } = useContext(UserContext);
+    const [id, setId] = useState(null);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        deactivateUser(id);
+        //activeUser(status);
+    };
 
     return (
         <>
             <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
-                Active User Management
+                Active User Management 
             </h2>
             <form className="mt-10 mx-auto max-w-xl py-2 px-6 rounded-full bg-gray-50 border flex focus-within:border-gray-300">
                 <input type="text" placeholder="Search anything" className="bg-transparent w-full focus:outline-none pr-4 font-semibold border-0 focus:ring-0 px-0 py-0" name="topic" /><button className="flex flex-row items-center justify-center min-w-[130px] px-4 rounded-full font-medium tracking-wide border disabled:cursor-not-allowed disabled:opacity-50 transition ease-in-out duration-150 text-base bg-black text-white font-medium tracking-wide border-transparent py-1.5 h-[38px] -mr-3">
@@ -26,7 +33,7 @@ const UserManagement = () => {
                             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Full Name</th>
                             <th scope="col" className="px-6 py-4 font-medium text-gray-900">User Name</th>
                             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Status</th>
-                            <th scope="col" className="px-6 py-4 font-medium text-gray-900"></th>
+                            <th scope="col" className="px-6 py-4 font-medium text-gray-900">Change Status</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100 border-t border-gray-100">
@@ -56,6 +63,41 @@ const UserManagement = () => {
                                     </td>
 
                                     <td className="px-6 py-4">
+
+                                        {id === elem.id ? (
+                                            <div>
+                                                <form onSubmit={handleSubmit}>
+                                                    {/* eslint-disable-next-line no-console */}
+                                                    {console.log(id)}
+                                                    <select name="status" id="status" defaultValue={user.status}>
+                                                        <option value="ACCEPT">Deactivate</option>
+                                                    </select>
+                                                    <div>
+                                                        <button
+                                                            className="bg-green-500 p-1 rounded-sm text-white"
+                                                            type="submit"
+                                                            value="Submit"
+                                                        >
+                                                            change Status
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        ) : (
+                                            <div>
+                                                <div>{user.status}</div>
+                                                <button
+                                                    className="bg-red-500 p-1 rounded-sm text-white"
+                                                    onClick={() => setId(elem.id)}
+                                                >
+                                                    change
+                                                </button>
+                                            </div>
+                                        )}
+                                    </td>
+
+
+                                    <td className="px-6 py-4">
                                         <div className="flex justify-end gap-4">
                                             <a x-data="{ tooltip: 'Delete' }" href="#">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-6 w-6" x-tooltip="tooltip">
@@ -69,7 +111,7 @@ const UserManagement = () => {
                                             </a>
                                         </div>
                                     </td>
-
+                                    
                                 </tr>
                             ))}
                     </tbody>

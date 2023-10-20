@@ -75,6 +75,19 @@ export function UserProvider({ children }) {
       });
   }
 
+  const deactivateUser = (id) => {
+    console.log("id--",id)
+     UserAPI.deactivateUser(id)
+       .then((response) => {
+         makeToast({ type: "success", message: "User Deactivated" });
+         window.location.href = "/back-office/user-management";
+       })
+       .catch((err) => {
+ 
+         console.log(err);
+       });
+   }
+
 
 
   return (
@@ -89,6 +102,7 @@ export function UserProvider({ children }) {
         register,
         getOne,
         activeUser,
+        deactivateUser
 
 
       }}
