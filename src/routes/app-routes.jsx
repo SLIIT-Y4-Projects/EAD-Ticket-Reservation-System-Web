@@ -76,7 +76,7 @@ const AppRoutes = () => {
           <Route path="/train-list" element={< TrainList />} />
           </Route>
           <Route>
-          <Route path="/reservation-add" element={< ReservationAdd />} />
+          <Route path="/reservation-add/:id" element={< ReservationAdd />} />
           </Route>
 
         </Routes>
