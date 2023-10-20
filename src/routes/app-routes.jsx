@@ -24,6 +24,7 @@ import {
   ReservationAdd,
   TravelAgentTrainManagement,
   UserRegister,
+  UserEditProfile,
 
 } from "../pages";
 
@@ -73,6 +74,7 @@ const AppRoutes = () => {
           <Route path="/back-office/trains-edit/:id" element={< EditTrain />} />
           <Route path="/back-office/reservations" element={< AllReservation />} />
           <Route path="/back-office/user/create" element={<  UserRegister />} />
+          <Route path="/back-office/user-edit/:id" element={<    UserEditProfile />} />
           </Route>
 
           <Route>

@@ -98,6 +98,24 @@ export function UserProvider({ children }) {
     });
   };
 
+  // Edit User Details
+
+  const editUser = (values) => {
+    const newUser = {
+      id: values.id,
+      fullName: values.fullName,
+      username: values.username,
+    };
+    UserAPI.editUser(values.id, newUser)
+      .then((response) => {
+        makeToast({ type: "success", message: "User Updated Successful" });
+        window.location.href = "/back-office/de-active/users";
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
 
   return (
     <UserContext.Provider
@@ -113,6 +131,7 @@ export function UserProvider({ children }) {
         activeUser,
         deactivateUser,
         deleteUser,
+        editUser,
 
 
       }}
