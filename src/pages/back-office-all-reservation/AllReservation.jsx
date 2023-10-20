@@ -1,11 +1,39 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import BackOfficeContext from "../../contexts/BackOfficeContext";
 import ReservationContext from "../../contexts/ReservationContext";
 import { Link } from "react-router-dom";
+import makeToast from "../../components/toast";
+
 
 const AllReservation = () => {
 
-    const { reservations } = useContext(ReservationContext);
+    const { reservations , cancelReservation } = useContext(ReservationContext);
+    const [id, setId] = useState(null);
+
+      // Calculate the date difference in days
+      const dateDiffInDays = (date1, date2) => {
+        const diffInTime = new Date(date1) - new Date(date2);
+        return diffInTime / (1000 * 3600 * 24);
+    };
+
+    // Function to handle the cancel reservation based on date difference
+    const handleCancelReservation = (elem) => {
+        const systemDate = new Date(); // Get the current system date
+        const reservationDate = new Date(elem.reservationDate);
+
+        const daysDifference = dateDiffInDays(reservationDate, systemDate);
+
+        if (daysDifference >= 5) {
+            // If the date difference is greater than or equal to 5 days, then cancel the reservation
+            cancelReservation(elem.id);
+            makeToast({ type: "success", message: "Reservation Cancelled 1" });
+        } else {
+            makeToast({ type: "error", message: "Cant cancel reservations in last five days..!" });
+        }
+    };
+
+
+
 
     return (
         <>
@@ -71,6 +99,39 @@ const AllReservation = () => {
 
                                     </div>
                                 </td>
+                                <td className="px-6 py-4">
+
+{id === elem.id ? (
+    <div>
+        <form onSubmit={handleSubmit}>
+            {/* eslint-disable-next-line no-console */}
+            {console.log(elem.id)}
+            <select name="status" id="status" defaultValue={elem.status}>
+                <option value="ACCEPT">Activate</option>
+            </select>
+            <div>
+                <button
+                    className="bg-green-500 p-1 rounded-sm text-white"
+                    type="submit"
+                    value="Submit"
+                >
+                    change Status
+                </button>
+            </div>
+        </form>
+    </div>
+) : (
+    <div>
+        <div>{elem.status}</div>
+        <button
+            className="bg-red-500 p-1 rounded-sm text-white"
+            onClick={() => handleCancelReservation(elem)}
+        >
+            change
+        </button>
+    </div>
+)}
+</td>
                             </tr>
                         ))}
                     </tbody>

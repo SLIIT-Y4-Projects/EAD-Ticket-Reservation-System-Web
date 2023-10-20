@@ -67,6 +67,22 @@ export function ReservationProvider({ children }) {
             });
     }
 
+    //cancel Reservation
+
+    const cancelReservation = (id) => {
+        console.log("id--", id)
+        ReservationAPI.cancelReservation(id)
+          .then((response) => {
+            makeToast({ type: "success", message: "Reservation Cancelled 1" });
+            window.location.href = "#"
+
+          })
+          .catch((err) => {
+    
+            console.log(err);
+          });
+      }
+
     return (
         <ReservationContext.Provider
 
@@ -79,6 +95,7 @@ export function ReservationProvider({ children }) {
                 createReservation,
                 deleteReservation,
                 editReservation,
+                cancelReservation
 
             }}
 
