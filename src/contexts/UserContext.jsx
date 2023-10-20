@@ -109,7 +109,7 @@ export function UserProvider({ children }) {
     UserAPI.editUser(values.id, newUser)
       .then((response) => {
         makeToast({ type: "success", message: "User Updated Successful" });
-        window.location.href = "/back-office/de-active/users";
+
       })
       .catch((error) => {
         console.log(error);

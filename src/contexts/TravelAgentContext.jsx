@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import TravelAgentAPI from "./api/TravelAgentAPI";
 import makeToast from "../components/toast";
 
@@ -46,6 +46,25 @@ export function TravelAgentProvider({ children }) {
       });
   };
 
+  // get Travel Agent user by ID
+
+  const getOne = (id) => {
+    useEffect(() => {
+      TravelAgentAPI.getOne(id).then((response) => {
+        setTravelAgent(response.data);
+      });
+    }, []);
+  };
+
+   // get all Travel Agent
+
+   useEffect(() => {
+    TravelAgentAPI.getAll().then((response) => {
+      setTravelAgents(response.data);
+    });
+  }, []);
+
+
 
 
   return (
@@ -56,6 +75,7 @@ export function TravelAgentProvider({ children }) {
       setTravelAgents,
       login,
       register,
+      getOne,
 
 
     }}>

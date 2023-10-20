@@ -25,6 +25,8 @@ import {
   TravelAgentTrainManagement,
   UserRegister,
   UserEditProfile,
+  TravelAgentUserManagement,
+  TravelAgentReservationManagement,
 
 } from "../pages";
 
@@ -54,9 +56,8 @@ const AppRoutes = () => {
           <Route path="/travel-agent" element={< TravelAgentDashboard />} />
           <Route path="/travel-agent/train/details" element={< TravelAgentTrainManagement />} />
           <Route path="/travel-agent/user/create" element={<  UserRegister />} />
-          <Route path="/travel-agent/user-management" element={<UserManagement />} />
-          <Route path="/travel-agent/de-active/users" element={< DeActiveUsers />} />
-          <Route path="/travel-agent/reservations" element={< AllReservation />} />
+          <Route path="/travel-agent/user-management" element={<TravelAgentUserManagement />} />   
+          <Route path="/travel-agent/reservations" element={<  TravelAgentReservationManagement />} />
             </Route>
 
 

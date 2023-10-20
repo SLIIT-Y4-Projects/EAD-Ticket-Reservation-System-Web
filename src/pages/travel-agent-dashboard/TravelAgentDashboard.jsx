@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import TravelAgentContext from "../../contexts/TravelAgentContext";
 import { Link } from "react-router-dom";
 
 
 const TravelAgentDashboard = () => {
+
+  const {getOne} = useContext(TravelAgentContext);
+  const username = localStorage.getItem("username");
+  const role = localStorage.getItem("permissionLevel")
 
   return (
     <>
@@ -16,8 +20,8 @@ const TravelAgentDashboard = () => {
             </div>
             <div className="mt-16 text-center">
               <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1931&q=80" alt="" className="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28" />
-              <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block"></h5>
-              <span className="hidden text-gray-400 lg:block"></span>
+              <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">{username}</h5>
+              <span className="hidden text-gray-400 lg:block">{role}</span>
             </div>
 
           </div>
