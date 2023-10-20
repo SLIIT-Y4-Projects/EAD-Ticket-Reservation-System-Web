@@ -19,7 +19,7 @@ class UserAPI {
         }
 
         static getOne(id) {
-            return axios.get(`${BASE_URL}/api/TravellerUser/${id}`, values, requestConfig)
+            return axios.get(`${BASE_URL}/api/TravellerUser/${id}`, requestConfig)
         }
 
         static editUser(id, values) {
@@ -32,6 +32,10 @@ class UserAPI {
 
         static deactivateUser(id, values) {
             return axios.put(`${BASE_URL}/api/TravellerUser/deactivate/${id}`, values, requestConfigJson)
+        }
+
+        static deleteUser(id) {
+            return axios.delete(`${BASE_URL}/api/TravellerUser/${id}`, requestConfig)
         }
 }
 

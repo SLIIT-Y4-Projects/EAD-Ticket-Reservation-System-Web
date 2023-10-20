@@ -16,6 +16,8 @@ import TrainList from "./train-list";
 import AllReservation from "./back-office-all-reservation";
 import ReservationAdd from "./reservation-add";
 import TravelAgentTrainManagement from "./travel-agent-train-management";
+import UserRegister from "./user-creation";
+import UserEditProfile from "./user-edit-profile";
 
 
 export {
@@ -37,4 +39,6 @@ export {
     AllReservation,
     ReservationAdd,
     TravelAgentTrainManagement,
+    UserRegister,
+    UserEditProfile,
 }

@@ -19,7 +19,7 @@ class ReservationAPI {
     
      // get one reservation details
      static getOne(id){
-        return axios.get(`${BASE_URL}/api/Reservation/${id}`,id, requestConfig)
+        return axios.get(`${BASE_URL}/api/Reservation/${id}`, requestConfig)
     }
 
      // edit reservation details
