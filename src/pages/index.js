@@ -18,6 +18,8 @@ import ReservationAdd from "./reservation-add";
 import TravelAgentTrainManagement from "./travel-agent-train-management";
 import UserRegister from "./user-creation";
 import UserEditProfile from "./user-edit-profile";
+import TravelAgentUserManagement from "./travel-agent-user-management";
+import TravelAgentReservationManagement from "./travel-agent-reservation-management";
 
 
 export {
@@ -41,4 +43,6 @@ export {
     TravelAgentTrainManagement,
     UserRegister,
     UserEditProfile,
+    TravelAgentUserManagement,
+    TravelAgentReservationManagement,
 }

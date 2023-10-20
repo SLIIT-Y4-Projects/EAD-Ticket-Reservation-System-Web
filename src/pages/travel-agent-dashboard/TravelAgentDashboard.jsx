@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import TravelAgentContext from "../../contexts/TravelAgentContext";
 import { Link } from "react-router-dom";
 
 
 const TravelAgentDashboard = () => {
+
+  const {getOne} = useContext(TravelAgentContext);
+  const username = localStorage.getItem("username");
+  const role = localStorage.getItem("permissionLevel")
 
   return (
     <>
@@ -16,8 +20,8 @@ const TravelAgentDashboard = () => {
             </div>
             <div className="mt-16 text-center">
               <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1931&q=80" alt="" className="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28" />
-              <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block"></h5>
-              <span className="hidden text-gray-400 lg:block"></span>
+              <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">{username}</h5>
+              <span className="hidden text-gray-400 lg:block">{role}</span>
             </div>
 
           </div>
@@ -72,21 +76,23 @@ const TravelAgentDashboard = () => {
 
           <div className="grid gap-4 sm:grid md:gap-6 lg:grid-cols-3 xl:grid ml-32">
             {/* product - start */}
+            <Link to="/travel-agent/reservations">
             <div>
-              <a href="#" className="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-                <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&q=75&fit=crop&crop=top&w=600&h=700" loading="lazy" alt="Photo by Austin Wade" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+              <a  className="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
+                <img src="./ticket.svg" loading="lazy" alt="Photo by Austin Wade" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
                 <div className="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
                   <span className="text-gray-500">Reservation</span>
                   <span className="text-lg font-bold text-gray-800 lg:text-xl">Reservation Management</span>
                 </div>
               </a>
             </div>
+            </Link>
            
 
            <Link to="/travel-agent/train/details">
             <div>
-              <a href="#" className="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-                <img src="https://images.unsplash.com/photo-1514250609276-c577268ef8fb?auto=format&fit=crop&q=80&w=1970&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" loading="lazy" alt="Photo by engin akyurt" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+              <a  className="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
+                <img src="./train.svg" loading="lazy" alt="Photo by engin akyurt" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
                 
                 <div className="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
                   <span className="text-gray-500">🚆 Train</span>
@@ -97,15 +103,17 @@ const TravelAgentDashboard = () => {
           </Link>
             {/* product - end */}
             {/* product - start */}
+            <Link to="/travel-agent/user-management">
             <div>
-              <a href="#" className="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-                <img src="https://images.unsplash.com/photo-1552668693-d0738e00eca8?auto=format&q=75&fit=crop&crop=top&w=600&h=700" loading="lazy" alt="Photo by Austin Wade" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+              <a  className="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
+                <img src="./user.svg" loading="lazy" alt="Photo by Austin Wade" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
                 <div className="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-                  <span className="text-gray-500">User</span>
-                  <span className="text-lg font-bold text-gray-800 lg:text-xl">Streetwear</span>
+                  <span className="text-gray-500">👤User</span>
+                  <span className="text-lg font-bold text-gray-800 lg:text-xl">User Management</span>
                 </div>
               </a>
             </div>
+            </Link>
             {/* product - end */}
             {/* product - start */}
 
