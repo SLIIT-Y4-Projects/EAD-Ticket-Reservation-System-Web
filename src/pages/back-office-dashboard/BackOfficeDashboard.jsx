@@ -105,7 +105,7 @@ const BackOfficeDashboard = () => {
 
                 <h5 className="text-xl text-center mb-2 font-bold">Ticket Reservation Management</h5>
 
-                <Link to="/back-office/train-management">
+                <Link to="/back-office/reservations">
                     <img
                       src="/ticket.svg"
                     />

@@ -7,7 +7,7 @@ const Header = () => {
 
   const logout = () => {
     localStorage.removeItem("uId");
-    localStorage.removeItem("name");
+    localStorage.removeItem("username");
     localStorage.removeItem("email");
     localStorage.removeItem("nic");
     localStorage.removeItem("authToken");
