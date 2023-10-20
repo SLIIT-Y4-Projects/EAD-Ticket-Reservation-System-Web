@@ -21,6 +21,7 @@ import {
   EditTrain,
   TrainList,
   AllReservation,
+  ReservationAdd,
   TravelAgentTrainManagement,
 
 } from "../pages";
@@ -73,7 +74,9 @@ const AppRoutes = () => {
 
           <Route>
           <Route path="/train-list" element={< TrainList />} />
-
+          </Route>
+          <Route>
+          <Route path="/reservation-add" element={< ReservationAdd />} />
           </Route>
 
         </Routes>
