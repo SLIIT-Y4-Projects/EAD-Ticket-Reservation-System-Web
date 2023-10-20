@@ -54,6 +54,9 @@ const AppRoutes = () => {
           <Route path="/travel-agent" element={< TravelAgentDashboard />} />
           <Route path="/travel-agent/train/details" element={< TravelAgentTrainManagement />} />
           <Route path="/travel-agent/user/create" element={<  UserRegister />} />
+          <Route path="/travel-agent/user-management" element={<UserManagement />} />
+          <Route path="/travel-agent/de-active/users" element={< DeActiveUsers />} />
+          <Route path="/travel-agent/reservations" element={< AllReservation />} />
             </Route>
 
 
@@ -74,7 +77,7 @@ const AppRoutes = () => {
           <Route path="/back-office/trains-edit/:id" element={< EditTrain />} />
           <Route path="/back-office/reservations" element={< AllReservation />} />
           <Route path="/back-office/user/create" element={<  UserRegister />} />
-          <Route path="/back-office/user-edit/:id" element={<    UserEditProfile />} />
+          <Route path="/back-office/user-edit/:id" element={< UserEditProfile />} />
           </Route>
 
           <Route>
